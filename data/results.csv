@@ -1,0 +1,13 @@
+timestamp,question,expected,given,correct
+2025-08-23T20:45:32,Vad betyder idempotent i datajobb?,Upprepad körning ändrar inte resultatet,python -m tests.manual_flashcards,0
+2025-08-23T20:45:54,SQL: vad gör GROUP BY?,Grupperar rader för aggregat,python -m tests.manual_flashcards,0
+2025-08-23T20:46:12,SQL: vad gör GROUP BY?,Grupperar rader för aggregat,python -m tests.manual_flashcards,0
+2025-08-23T20:47:56,Vad gör len('abc') i Python?,3,Lenght 3,0
+2025-08-23T20:48:07,SQL: vad gör GROUP BY?,Grupperar rader för aggregat,grupperar,0
+2025-08-23T20:48:14,SQL: vad gör GROUP BY?,Grupperar rader för aggregat,grupperar,0
+2025-08-23T20:56:16,Vad betyder idempotent i datajobb?,Upprepad körning ändrar inte resultatet,.,0
+2025-08-23T20:56:26,Vad betyder idempotent i datajobb?,Upprepad körning ändrar inte resultatet,Upprepad körning ändrar inte resultatet,1
+2025-08-23T20:56:35,Vad betyder idempotent i datajobb?,Upprepad körning ändrar inte resultatet,upprepad körning ändrar inte resultatet,1
+2025-08-23T21:05:31,Vad betyder idempotent i datajobb?,Upprepad körning ändrar inte resultatet,D,0
+2025-08-23T21:05:32,Vad gör len('abc') i Python?,3,D,0
+2025-08-23T21:05:33,Vad gör len('abc') i Python?,3,D,0

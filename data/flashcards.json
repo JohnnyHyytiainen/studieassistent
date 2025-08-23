@@ -1,0 +1,90 @@
+[
+  {
+    "q": "Vad gör len('abc') i Python?",
+    "a": "3",
+    "tags": [
+      "python",
+      "bas"
+    ]
+  },
+  {
+    "q": "SQL: vad gör GROUP BY?",
+    "a": "Grupperar rader för aggregat",
+    "tags": [
+      "sql"
+    ]
+  },
+  {
+    "q": "Vad betyder idempotent i datajobb?",
+    "a": "Upprepad körning ändrar inte resultatet",
+    "tags": [
+      "etl"
+    ]
+  },
+  {
+    "q": "Vad gör len('abc') i Python?",
+    "a": "3",
+    "tags": [
+      "python",
+      "bas"
+    ]
+  },
+  {
+    "q": "SQL: vad gör GROUP BY?",
+    "a": "Grupperar rader för aggregat",
+    "tags": [
+      "sql"
+    ]
+  },
+  {
+    "q": "Vad betyder idempotent i datajobb?",
+    "a": "Upprepad körning ändrar inte resultatet",
+    "tags": [
+      "etl"
+    ]
+  },
+  {
+    "q": "Vad gör len('abc') i Python?",
+    "a": "3",
+    "tags": [
+      "python",
+      "bas"
+    ]
+  },
+  {
+    "q": "SQL: vad gör GROUP BY?",
+    "a": "Grupperar rader för aggregat",
+    "tags": [
+      "sql"
+    ]
+  },
+  {
+    "q": "Vad betyder idempotent i datajobb?",
+    "a": "Upprepad körning ändrar inte resultatet",
+    "tags": [
+      "etl"
+    ]
+  },
+  {
+    "q": "Vad gör len('abc') i Python?",
+    "a": "3",
+    "tags": [
+      "python",
+      "bas"
+    ]
+  },
+  {
+    "q": "SQL: vad gör GROUP BY?",
+    "a": "Grupperar rader för aggregat",
+    "tags": [
+      "sql"
+    ]
+  },
+  {
+    "q": "Vad betyder idempotent i datajobb?",
+    "a": "Upprepad körning ändrar inte resultatet",
+    "tags": [
+      "etl"
+    ]
+  }
+]
