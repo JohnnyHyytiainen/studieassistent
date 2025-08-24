@@ -11,8 +11,8 @@ def seed():  # Varför seed scrips? Jag kan återvända och fylla på med fler k
 
 
 if __name__ == "__main__":
-    # 1) Lägg in tre kort
-    seed()
+    # 1) Lägg in tre kort BEHÅLL SEED KOMMENTERAD NÄR DU VILL QUIZA.
+    # seed()
     print("Lagt till 3 kort i data/flashcards.json")
 
     # 2) Kör quiz tre gånger

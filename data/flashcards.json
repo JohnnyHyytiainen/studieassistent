@@ -3,8 +3,8 @@
     "q": "Vad gör len('abc') i Python?",
     "a": "3",
     "tags": [
-      "python",
-      "bas"
+      "bas",
+      "python"
     ]
   },
   {
@@ -22,69 +22,59 @@
     ]
   },
   {
-    "q": "Vad gör len('abc') i Python?",
-    "a": "3",
+    "q": "Vad är str i python?",
+    "a": "Text",
     "tags": [
-      "python",
-      "bas"
+      "bas",
+      "python"
     ]
   },
   {
-    "q": "SQL: vad gör GROUP BY?",
-    "a": "Grupperar rader för aggregat",
+    "q": "Vad är int i python?",
+    "a": "Heltal",
     "tags": [
-      "sql"
+      "bas",
+      "python"
     ]
   },
   {
-    "q": "Vad betyder idempotent i datajobb?",
-    "a": "Upprepad körning ändrar inte resultatet",
+    "q": "Vad är float i python?",
+    "a": "Tal med decimaler",
     "tags": [
-      "etl"
+      "bas",
+      "python"
     ]
   },
   {
-    "q": "Vad gör len('abc') i Python?",
-    "a": "3",
+    "q": "Vad gör print (\"Hej!\") ?",
+    "a": "Skriver ut Hej!",
     "tags": [
-      "python",
-      "bas"
+      "bas",
+      "python"
     ]
   },
   {
-    "q": "SQL: vad gör GROUP BY?",
-    "a": "Grupperar rader för aggregat",
+    "q": "Vad är skillnaden mellan str, int och float?",
+    "a": "Text, heltal och decimal",
     "tags": [
-      "sql"
+      "bas",
+      "python"
     ]
   },
   {
-    "q": "Vad betyder idempotent i datajobb?",
-    "a": "Upprepad körning ändrar inte resultatet",
+    "q": "Hur gör du en lista i python?",
+    "a": "Med []",
     "tags": [
-      "etl"
+      "bas",
+      "python"
     ]
   },
   {
-    "q": "Vad gör len('abc') i Python?",
-    "a": "3",
+    "q": "Vilken siffra är den första i en lista?",
+    "a": "0",
     "tags": [
-      "python",
-      "bas"
-    ]
-  },
-  {
-    "q": "SQL: vad gör GROUP BY?",
-    "a": "Grupperar rader för aggregat",
-    "tags": [
-      "sql"
-    ]
-  },
-  {
-    "q": "Vad betyder idempotent i datajobb?",
-    "a": "Upprepad körning ändrar inte resultatet",
-    "tags": [
-      "etl"
+      "bas",
+      "python"
     ]
   }
 ]
