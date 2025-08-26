@@ -141,24 +141,24 @@ def main():
         print("\n====== FLASHCARDS ======")
         print("1) Lägg till kort")
         print("2) Quiz")
-        print("3) Avsluta")
-        print("4) Studieplan")
-        print("5) Statistik")
+        print("3) Studieplan")
+        print("4) Statistik")
+        print("5) Avsluta")
         choice = input("Val: ").strip()
 
         if choice == "1":
             handle_add_card()
         elif choice == "2":
             handle_quiz()
-        elif choice == "3":
+        elif choice == "5":
             print("Hejdå!")
             break
-        elif choice == "4":
+        elif choice == "3":
             handle_studyplan_menu()
-        elif choice == "5":
+        elif choice == "4":
             handle_stats()
         else:
-            print("Ogiltigt val. Skriv 1, 2, 3 eller 4.")
+            print("Ogiltigt val. Skriv 1, 2, 3, 4 eller 5.")
 
 
 if __name__ == "__main__":
