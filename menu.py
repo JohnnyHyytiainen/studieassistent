@@ -7,7 +7,7 @@
 # menu.py – huvudmeny för Studieassistenten (läggs i projektroten)
 from src.flashcards import add_card, quiz_once
 from src.plan import set_goal, mark_done, progress, get_week, list_weeks
-
+from src.stats import totals
 # ---------------- Hjälpfunktioner ----------------
 
 
@@ -122,6 +122,17 @@ def handle_studyplan_menu():
         else:
             print("Ogiltigt val.")
 
+# ---------------- Stats-handlers ----------------
+
+
+def handle_stats():
+    print("\--- Statistik ---")
+    t = totals()
+    print(f"Totalt: {t['total']}")
+    print(f"Rätt:   {t['correct']}")
+    print(f"Fel:    {t['incorrect']}")
+    print(f"Träffsäkerhet:  {t['accuracy']}")
+
 # ---------------- Huvudmeny ----------------
 
 
@@ -132,6 +143,7 @@ def main():
         print("2) Quiz")
         print("3) Avsluta")
         print("4) Studieplan")
+        print("5) Statistik")
         choice = input("Val: ").strip()
 
         if choice == "1":
@@ -143,6 +155,8 @@ def main():
             break
         elif choice == "4":
             handle_studyplan_menu()
+        elif choice == "5":
+            handle_stats()
         else:
             print("Ogiltigt val. Skriv 1, 2, 3 eller 4.")
 
