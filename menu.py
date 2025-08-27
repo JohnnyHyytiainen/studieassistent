@@ -126,12 +126,12 @@ def handle_studyplan_menu():
 
 
 def handle_stats():
-    print("\--- Statistik ---")
+    print("\n--- Statistik ---")
     t = totals()
     print(f"Totalt: {t['total']}")
     print(f"Rätt:   {t['correct']}")
     print(f"Fel:    {t['incorrect']}")
-    print(f"Träffsäkerhet:  {t['accuracy']}")
+    print(f"Träffsäkerhet:  {t['accuracy']}%")
 
 # ---------------- Huvudmeny ----------------
 

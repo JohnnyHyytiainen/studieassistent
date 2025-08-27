@@ -76,5 +76,85 @@
       "bas",
       "python"
     ]
+  },
+  {
+    "q": "Vad är variabel i Python?",
+    "a": "namn som pekar på värde",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Vad är lista i Python?",
+    "a": "ordnad samling",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Vad är dict i Python?",
+    "a": "nyckel–värde-par",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Vad är tuple i Python?",
+    "a": "oföränderlig ordnad samling",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Vad är set i Python?",
+    "a": "unika värden utan ordning",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Vad är loop i Python?",
+    "a": "upprepar kod",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Vad är if-sats i Python?",
+    "a": "villkorlig körning",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Vad är funktion i Python?",
+    "a": "återanvändbar kod med def",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Vad är len i Python?",
+    "a": "antal element",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Vad är range i Python?",
+    "a": "sekvens av tal",
+    "tags": [
+      "python",
+      "auto"
+    ]
   }
 ]
