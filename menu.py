@@ -8,6 +8,7 @@
 from src.flashcards import add_card, quiz_once
 from src.plan import set_goal, mark_done, progress, get_week, list_weeks
 from src.stats import totals
+from src.generator import generate_questions
 # ---------------- Hjälpfunktioner ----------------
 
 
@@ -133,6 +134,22 @@ def handle_stats():
     print(f"Fel:    {t['incorrect']}")
     print(f"Träffsäkerhet:  {t['accuracy']}%")
 
+# ---------------- Generator ----------------
+
+
+def handle_generate():
+    print("\n--- Generera flashcards ---")
+    n = prompt_int(
+        "Hur många frågor per begrepp? (1–2, default 1): ", default=1)
+    # Håll per_term inom [1, 2] för enkla, korta kort
+    per_term = 1 if n <= 1 else 2
+    added = generate_questions(per_term=per_term)
+    if added == 0:
+        print("Inga nya kort lades till (kan vara dubbletter).")
+    else:
+        print(f"Lade till {added} nya kort från concepts.json.")
+
+
 # ---------------- Huvudmeny ----------------
 
 
@@ -143,22 +160,25 @@ def main():
         print("2) Quiz")
         print("3) Studieplan")
         print("4) Statistik")
-        print("5) Avsluta")
+        print("5) Generera flashcards")
+        print("6) Avsluta")
         choice = input("Val: ").strip()
 
         if choice == "1":
             handle_add_card()
         elif choice == "2":
             handle_quiz()
-        elif choice == "5":
+        elif choice == "6":
             print("Hejdå!")
             break
         elif choice == "3":
             handle_studyplan_menu()
         elif choice == "4":
             handle_stats()
+        elif choice == "5":
+            handle_generate()
         else:
-            print("Ogiltigt val. Skriv 1, 2, 3, 4 eller 5.")
+            print("Ogiltigt val. Skriv 1, 2, 3, 4, 5 eller 6.")
 
 
 if __name__ == "__main__":
