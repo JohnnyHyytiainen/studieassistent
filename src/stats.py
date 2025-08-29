@@ -1,4 +1,14 @@
 # src/stats.py
+"""
+stats.py – beräkning av övergripande quiz-statistik.
+
+Läser data/results.csv (skapad av flashcards.quiz_once) och räknar:
+- total antal frågor
+- antal rätt
+- antal fel
+- träffsäkerhet i procent (avrundat till heltal)
+"""
+
 from pathlib import Path
 from typing import List, Dict, Any
 import csv
@@ -6,12 +16,17 @@ import csv
 RESULTS_CSV = Path("data/results.csv")
 
 
-def load_results() -> List[Dict[str, Any]]:
+def load_results() -> list[dict[str, Any]]:
     """
-    Läser results.csv och returnerar en lista av rader som dicts:
-    {"timestamp": ..., "question": ..., "expected": ..., "given": ..., "correct": "1"/"0"}
-    Tom lista om filen saknas.
+    Läs in results.csv och returnera rader som dicts.
+
+    CSV-format:
+        timestamp,question,expected,given,correct
+
+    Returns:
+        list[dict[str, Any]]: en lista med rader; tom lista om filen saknas.
     """
+
     if not RESULTS_CSV.exists():
         return []
 
@@ -46,11 +61,19 @@ def load_results() -> List[Dict[str, Any]]:
     return rows
 
 
-def totals() -> Dict[str, int]:
+def totals() -> dict[str, int]:
     """
-    Returnerar en sammanfattning:
-      {"total": N, "correct": C, "incorrect": N-C, "accuracy": procent_heltal}
+    Summera quiz-resultat.
+
+    Returns:
+        dict[str, int]: {
+            "total": antal frågor,
+            "correct": antal rätt,
+            "incorrect": antal fel,
+            "accuracy": procent (0–100)
+        }
     """
+
     data = load_results()
     total = len(data)
     correct = sum(1 for d in data if str(

@@ -1,4 +1,13 @@
 # src/generator.py
+"""
+generator.py – skapa flashcards automatiskt från data/concepts.json.
+
+För varje begrepp i concepts.json genereras enkla Q/A-kort, t.ex.:
+"Vad är <term> i Python?" -> "<def>"
+
+Dubbletter undviks genom jämförelse av (fråga, svar) efter normalisering.
+Nya kort läggs till via flashcards.add_card och taggas med ["<lang>", "auto"].
+"""
 from pathlib import Path
 from typing import List, Dict, Any
 from src.io_utils import read_json
@@ -8,12 +17,28 @@ CONCEPTS_PATH = Path("data/concepts.json")
 
 
 def _norm(s: str) -> str:
+    """
+    Normalisera sträng: trimma, lower, krympa whitespace.
+
+    Args:
+        s (str): godtycklig sträng
+
+    Returns:
+        str: normaliserad sträng
+    """
     return " ".join((s or "").strip().lower().split())
 
 
 def _card_exists(q: str, a: str) -> bool:
     """
-    Kolla om ett kort med samma (q, a) redan finns — case/whitespace-okänsligt.
+    Kontrollera om ett kort (q, a) redan finns (case/whitespace-okänsligt).
+
+    Args:
+        q (str): frågetext
+        a (str): svarstext
+
+    Returns:
+        bool: True om kortet finns, annars False
     """
     cards = read_json(FLASHCARDS_PATH, default=[])
     if not isinstance(cards, list):
@@ -26,6 +51,16 @@ def _card_exists(q: str, a: str) -> bool:
 
 
 def _build_question(term: str, lang: str) -> str:
+    """
+    Bygg en enkel frågeformulering för ett begrepp.
+
+    Args:
+        term (str): begrepp (t.ex. "int")
+        lang (str): språk/domän (t.ex. "python")
+
+    Returns:
+        str: en fråga, t.ex. "Vad är int i Python?"
+    """
     lang = (lang or "").strip().lower()
     term = (term or "").strip()
     if lang == "python" and term:
@@ -37,9 +72,14 @@ def _build_question(term: str, lang: str) -> str:
 
 def generate_questions(concepts_path: Path = CONCEPTS_PATH, per_term: int = 1) -> int:
     """
-    Läser data/concepts.json och lägger till enkla Q/A i flashcards.
-    - per_term: hur många frågor per begrepp (1 räcker fint för vår strikta rättning).
-    Returnerar antal NYA kort som lades till.
+    Generera frågor från concepts.json och lägg dem i flashcards.
+
+    Args:
+        concepts_path (Path): sökväg till concepts.json
+        per_term (int): antal frågor per begrepp (1–2 rekommenderas)
+
+    Returns:
+        int: antal NYA kort som lades till (dubbletter räknas ej)
     """
     data = read_json(concepts_path, default=[])
     if not isinstance(data, list):

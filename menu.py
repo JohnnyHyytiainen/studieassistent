@@ -5,14 +5,28 @@
 # Quiz (Visar korten) Här visas mina frågor som jag valt att kalla kort och lagt till och helt enkelt quiz'ar mig på det jag lagt in.
 # --- imports högst upp ---
 # menu.py – huvudmeny för Studieassistenten (läggs i projektroten)
+
+"""
+menu.py – enkel terminalmeny för Studieassistenten.
+
+Val:
+1) Lägg till kort
+2) Quiz
+3) Studieplan
+4) Statistik
+5) Generera flashcards
+6) Avsluta
+"""
 from src.flashcards import add_card, quiz_once
 from src.plan import set_goal, mark_done, progress, get_week, list_weeks
 from src.stats import totals
 from src.generator import generate_questions
+
 # ---------------- Hjälpfunktioner ----------------
 
 
 def prompt_nonempty(label: str) -> str:
+    """Fråga användaren om text och kräv icke-tomt svar."""
     while True:
         s = input(label).strip()
         if s:
@@ -21,6 +35,7 @@ def prompt_nonempty(label: str) -> str:
 
 
 def prompt_int(label: str, default: int | None = None) -> int:
+    """Fråga användaren om heltal, med valfritt default-värde och enkel validering."""
     s = input(label).strip()
     if not s and default is not None:
         return default
@@ -148,7 +163,6 @@ def handle_generate():
         print("Inga nya kort lades till (kan vara dubbletter).")
     else:
         print(f"Lade till {added} nya kort från concepts.json.")
-
 
 # ---------------- Huvudmeny ----------------
 
