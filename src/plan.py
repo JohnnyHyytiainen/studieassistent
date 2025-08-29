@@ -1,21 +1,52 @@
-# src/plan.py
+"""
+plan.py – hantering av studieplan med veckomål.
+
+Denna modul lagrar mål i data/plan.json.
+Den kan:
+- sätta nya mål för en vecka (set_goal)
+- markera en punkt som klar (mark_done)
+- beräkna progress i procent (progress)
+
+Dataformat (plan.json):
+{
+    "35": { "items": ["Läs kapitel 1", "Träna loops"], "done": [true, false] },
+    "36": { ... }
+}
+"""
+
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import Any
 from src.io_utils import read_json, write_json
 
 PLAN_PATH = Path("data/plan.json")
 
 
 # ---------------- Hjälpare ----------------
-def _load_plan() -> Dict[str, Dict[str, Any]]:
+def _load_plan() -> dict[str, dict[str, Any]]:
+    """
+    Läs in hela planen från data/plan.json.
+
+    Returns:
+        dict[str, dict]: {"vecka": {"items": [...], "done": [...]}}
+
+    Raises:
+        ValueError: om filformatet inte är ett dict
+    """
     data = read_json(PLAN_PATH, default={})
     if not isinstance(data, dict):
         raise ValueError(
-            "plan.json måste vara ett dict {vecka: {items: [...], done: [...]}}.")
+            "plan.json måste vara ett dict {vecka: {items: [...], done: [...]}}."
+        )
     return data
 
 
-def _save_plan(plan: Dict[str, Dict[str, Any]]) -> None:
+def _save_plan(plan: dict[str, dict[str, Any]]) -> None:
+    """
+    Spara hela planen till data/plan.json.
+
+    Args:
+        plan (dict): planen som ska sparas
+    """
     write_json(PLAN_PATH, plan)
 
 
@@ -27,18 +58,16 @@ def _norm_week(week: int | str) -> str:
 
 
 # ---------------- Publika funktioner ----------------
-def set_goal(week: int, items: List[str]) -> Dict[str, Any]:
+def set_goal(week: int, items: list[str]) -> dict[str, Any]:
     """
-    Sätt veckomål för given vecka.
-    Exempel:
-      set_goal(35, ["Lägg till 5 kort", "Kör 10 quiz-frågor", "Läs 45 min kurs"])
-    Lagring i data/plan.json:
-      {
-        "35": {
-          "items": [...],
-          "done":  [False, ...]
-        }
-      }
+    Sätt mål för en vecka.
+
+    Args:
+        week (int): veckonummer, ex. 35
+        items (list[str]): lista med målbeskrivningar
+
+    Returns:
+        dict[str, Any]: den uppdaterade veckans data (items + done-lista)
     """
     w = _norm_week(week)
     clean = [s.strip() for s in (items or []) if s and s.strip()]
@@ -54,10 +83,17 @@ def set_goal(week: int, items: List[str]) -> Dict[str, Any]:
     return plan[w]
 
 
-def mark_done(week: int, item_index: int, value: bool = True) -> Dict[str, Any]:
+def mark_done(week: int, item_index: int, value: bool = True) -> dict[str, Any]:
     """
-    Markera ett mål som klart/inte klart.
-    item_index är 0-baserat (första punkten = 0).
+    Markera en specifik punkt som klar/ej klar.
+
+    Args:
+        week (int): veckonummer
+        item_index (int): index i listan items (0-baserat)
+        value (bool, optional): True = klar, False = ej klar. Standard: True.
+
+    Returns:
+        dict[str, Any]: den uppdaterade veckans data
     """
     w = _norm_week(week)
     plan = _load_plan()
@@ -69,7 +105,8 @@ def mark_done(week: int, item_index: int, value: bool = True) -> Dict[str, Any]:
 
     if not (0 <= item_index < len(items)):
         raise IndexError(
-            f"item_index {item_index} ligger utanför intervallet 0..{len(items)-1}.")
+            f"item_index {item_index} ligger utanför intervallet 0..{len(items)-1}."
+        )
 
     done[item_index] = bool(value)
     plan[w]["done"] = done
@@ -79,8 +116,13 @@ def mark_done(week: int, item_index: int, value: bool = True) -> Dict[str, Any]:
 
 def progress(week: int) -> int:
     """
-    Returnerar progress i % för veckan (avrundad till heltal).
-    Tom vecka eller inga items => 0%.
+    Beräkna hur många procent av målen som är klara för given vecka.
+
+    Args:
+        week (int): veckonummer
+
+    Returns:
+        int: procent (0–100). Returnerar 0 om inga mål finns.
     """
     w = _norm_week(week)
     plan = _load_plan()
@@ -97,13 +139,27 @@ def progress(week: int) -> int:
     return pct
 
 
-# (Valfria extra-hjälpare om du vill använda senare i menyn)
-def get_week(week: int) -> Dict[str, Any] | None:
+def get_week(week: int) -> dict[str, Any] | None:
+    """
+    Hämta data för en vecka.
+
+    Args:
+        week (int): veckonummer
+
+    Returns:
+        dict[str, Any] | None: veckans data, eller None om den saknas
+    """
     w = _norm_week(week)
     plan = _load_plan()
     return plan.get(w)
 
 
-def list_weeks() -> List[str]:
+def list_weeks() -> list[str]:
+    """
+    Lista alla veckonummer som finns sparade i plan.json.
+
+    Returns:
+        list[str]: veckonummer som strängar (sorterade numeriskt när möjligt)
+    """
     plan = _load_plan()
     return sorted(plan.keys(), key=lambda x: int(x) if x.isdigit() else x)
