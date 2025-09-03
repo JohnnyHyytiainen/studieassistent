@@ -1,10 +1,24 @@
 {
   "35": {
     "items": [
-      "Bli klar med assistenten",
-      "fortsätta SQL kurs i mimo till fredag"
+      "Lägg till 5 kort",
+      "Kör 10 quiz-frågor",
+      "Läs 45 min kurs"
     ],
     "done": [
+      true,
+      true,
+      true
+    ]
+  },
+  "36": {
+    "items": [
+      "Bli klar med studieassistent v1.0",
+      "bli klar med veckan i skolan",
+      "få vg uppgiften avklarad"
+    ],
+    "done": [
+      false,
       false,
       false
     ]

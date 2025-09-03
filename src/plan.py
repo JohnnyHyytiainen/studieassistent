@@ -13,7 +13,6 @@ Dataformat (plan.json):
     "36": { ... }
 }
 """
-
 from pathlib import Path
 from typing import Any
 from src.io_utils import read_json, write_json
@@ -22,6 +21,7 @@ PLAN_PATH = Path("data/plan.json")
 
 
 # ---------------- Hjälpare ----------------
+
 def _load_plan() -> dict[str, dict[str, Any]]:
     """
     Läs in hela planen från data/plan.json.
@@ -58,6 +58,7 @@ def _norm_week(week: int | str) -> str:
 
 
 # ---------------- Publika funktioner ----------------
+
 def set_goal(week: int, items: list[str]) -> dict[str, Any]:
     """
     Sätt mål för en vecka.

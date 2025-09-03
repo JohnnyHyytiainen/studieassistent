@@ -1,3 +1,10 @@
+"""
+flashcards.py – hantering av frågekort (Q/A) och quiz.
+
+Denna modul lagrar kort i data/flashcards.json, kan lägga till nya kort,
+och köra quiz där frågor slumpas fram. Svar loggas i data/results.csv
+för att möjliggöra statistik.
+"""
 from __future__ import annotations
 from pathlib import Path
 from datetime import datetime
@@ -14,6 +21,15 @@ RESULTS_CSV = Path("data/results.csv")
 
 
 def _load_cards() -> List[Dict]:
+    """
+    Läs in alla flashcards från data/flashcards.json.
+
+    Returns:
+        list[dict]: en lista med kort-objekt ({"q": fråga, "a": svar, "tags": []})
+
+    Raises:
+        ValueError: om filen inte innehåller en lista
+    """
     cards = read_json(FLASHCARDS_PATH, default=[])
     if not isinstance(cards, list):
         raise ValueError("flashcards.json måste vara en lista av kort.")
@@ -21,6 +37,15 @@ def _load_cards() -> List[Dict]:
 
 
 def _save_cards(cards: List[Dict]) -> None:
+    """
+    Spara hela listan av kort till data/flashcards.json.
+
+    Args:
+        cards (list[dict]): korten som ska sparas
+
+    Returns:
+        None
+    """
     write_json(FLASHCARDS_PATH, cards)
 
 # ----- Publik funktion: lägg till kort -----
@@ -28,8 +53,15 @@ def _save_cards(cards: List[Dict]) -> None:
 
 def add_card(question: str, answer: str, tags: Optional[List[str]] = None) -> Dict:
     """
-    Lägg till ett kort i data/flashcards.json.
-    Format: {"q": "...", "a": "...", "tags": ["..."]}
+    Lägg till ett nytt kort.
+
+    Args:
+        question (str): frågetext
+        answer (str): korrekt svar
+        tags (list[str], optional): kategorier (t.ex. ["python","bas"])
+
+    Returns:
+        dict: kortet som lades till
     """
     q = (question or "").strip()
     a = (answer or "").strip()
@@ -63,8 +95,14 @@ def _ensure_results_header():
 
 def quiz_once() -> bool:
     """
-    Ställ en slumpad fråga i terminalen och logga resultat i data/results.csv.
-    Returnerar True om rätt svar, annars False.
+    Ställ en slumpmässig fråga, ta in användarens svar och jämför med facit.
+
+    Returns:
+        bool: True om användaren svarade rätt, False annars
+
+    Biverkan:
+        - Loggar frågan, rätt svar, användarens svar och om det var rätt/fel
+          till data/results.csv
     """
     cards = _load_cards()
     if not cards:

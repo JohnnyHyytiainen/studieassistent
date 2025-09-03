@@ -1,0 +1,80 @@
+[
+    {
+        "term": "variabel",
+        "lang": "python",
+        "def": "namn som pekar på värde",
+        "hint": "x = 3"
+    },
+    {
+        "term": "str",
+        "lang": "python",
+        "def": "text",
+        "hint": "\"hej\""
+    },
+    {
+        "term": "int",
+        "lang": "python",
+        "def": "heltal",
+        "hint": "42"
+    },
+    {
+        "term": "float",
+        "lang": "python",
+        "def": "tal med decimaler",
+        "hint": "3.14"
+    },
+    {
+        "term": "lista",
+        "lang": "python",
+        "def": "ordnad samling",
+        "hint": "[]"
+    },
+    {
+        "term": "dict",
+        "lang": "python",
+        "def": "nyckel–värde-par",
+        "hint": "{}"
+    },
+    {
+        "term": "tuple",
+        "lang": "python",
+        "def": "oföränderlig ordnad samling",
+        "hint": "()"
+    },
+    {
+        "term": "set",
+        "lang": "python",
+        "def": "unika värden utan ordning",
+        "hint": "set()"
+    },
+    {
+        "term": "loop",
+        "lang": "python",
+        "def": "upprepar kod",
+        "hint": "for/while"
+    },
+    {
+        "term": "if-sats",
+        "lang": "python",
+        "def": "villkorlig körning",
+        "hint": "if/elif/else"
+    },
+    {
+        "term": "funktion",
+        "lang": "python",
+        "def": "återanvändbar kod med def",
+        "hint": "def f():"
+    },
+    {
+        "term": "len",
+        "lang": "python",
+        "def": "antal element",
+        "hint": "len('abc') -> 3"
+    },
+    {
+        "term": "range",
+        "lang": "python",
+        "def": "sekvens av tal",
+        "hint": "range(3) -> 0..2"
+    }
+]

@@ -156,5 +156,109 @@
       "python",
       "auto"
     ]
+  },
+  {
+    "q": "Beskriv variabel kort",
+    "a": "namn som pekar på värde",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Beskriv str kort",
+    "a": "text",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Beskriv int kort",
+    "a": "heltal",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Beskriv float kort",
+    "a": "tal med decimaler",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Beskriv lista kort",
+    "a": "ordnad samling",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Beskriv dict kort",
+    "a": "nyckel–värde-par",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Beskriv tuple kort",
+    "a": "oföränderlig ordnad samling",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Beskriv set kort",
+    "a": "unika värden utan ordning",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Beskriv loop kort",
+    "a": "upprepar kod",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Beskriv if-sats kort",
+    "a": "villkorlig körning",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Beskriv funktion kort",
+    "a": "återanvändbar kod med def",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Beskriv len kort",
+    "a": "antal element",
+    "tags": [
+      "python",
+      "auto"
+    ]
+  },
+  {
+    "q": "Beskriv range kort",
+    "a": "sekvens av tal",
+    "tags": [
+      "python",
+      "auto"
+    ]
   }
 ]
